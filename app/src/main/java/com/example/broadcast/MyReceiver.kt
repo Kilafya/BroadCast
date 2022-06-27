@@ -24,11 +24,18 @@ class MyReceiver: BroadcastReceiver() {
                 val clickNumber = intent.getIntExtra(EXTRA_CLICK_NUMBER, 0)
                 Toast.makeText(context, "button clicked $clickNumber", Toast.LENGTH_SHORT).show()
             }
+            ACTION_LOADED -> {
+                val percent = intent.getIntExtra(EXTRA_PERCENT, 0)
+                Toast.makeText(context, "$percent%", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
     companion object {
         const val ACTION_CLICKED = "clicked"
+        const val ACTION_LOADED = "loaded"
+
         const val EXTRA_CLICK_NUMBER = "extra click number"
+        const val EXTRA_PERCENT = "percent"
     }
 }
